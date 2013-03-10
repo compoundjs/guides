@@ -8,14 +8,14 @@ structure and tools coming with compound and get quick overview of main features
 ### What is compound
 
 Before we start I have define compound framework. Compound's formula:
-[Express][https://github.com/visionmedia/express] + structure + extensions. Where **structure** is standard
+[Express][express] + structure + extensions. Where **structure** is standard
 layout of directories, and **extensions** are node modules adding functionality to
 the framework. Compound's goal: provide obvious and well-organized interface for
 express application development. That means everything working with express will
-work with compound too.
+work with compound.
 
-Now we can start building app. Let's create todo-list app with REST API and web
-interface.
+Now we can start building app. Let's create a new app with REST API and web
+interface and call it "todo-list".
 
 ### First steps: install compound and generate app
 
@@ -32,7 +32,7 @@ interface.
     cd todo-list-app && npm install
 
 Now we have initial compound app structure, we can run application and see
-what's happen. Let's run `node .` command and open http://localhost:3000/ in
+what will happen. Let's run `node .` command and open http://localhost:3000/ in
 browser.
 
 > **NOTE** `node .` command is simple way to run application in current
@@ -48,7 +48,7 @@ available as static content: client-side javascripts and stylesheets located her
 > sass / less / stylus. Sources for these files located at `./app/assets` and
 > compiled automatically using `co-assets-compiler` extension module.
 
-### Generate scaffold
+### Generate scaffold (new entities)
 
 Run this command
 
@@ -119,6 +119,7 @@ path, all route helpers available as methods on `pathTo` object. Examples:
 #### Controller
 
 When route matched, request handling passed to corresponding controller#action.
-Controllers located in `./app/controllers`. For example our list controller
+Controllers located in `./app/controllers`. For example, the list controller
 described in `./app/controllers/lists\_controller.js`
 
+[express]: https://github.com/visionmedia/express
