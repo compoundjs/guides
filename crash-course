@@ -1,0 +1,32 @@
+We will create a simple application that allows to store information on books
+
+1. Install compoundjs
+sudo npm install compound -g
+
+After that compound command appears for you, so you can start working with compound
+
+2. You can see commands of compound
+compound command
+
+3. create new "library" application
+compound init "library"
+
+4. see structure of folders in "library" application
+tmp/library
+tree
+
+5. open the following file and do appropriate modification to modify db and env settings (optional)
+database.json - you can set your db there 
+environment.js - set your environment variables
+
+6. install all necessary dependencies
+npm install -l
+
+7. you can now generate new entities
+compound generate crud books title content author
+
+8. make server listen
+compound server 8888
+
+9. see your application
+open http://127.0.0.1:8888/posts
