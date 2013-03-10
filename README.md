@@ -7,14 +7,22 @@
 Crash course to CompoundJS. Create your first app, learn structure, use
 generators and tools.
 
-#### [Compound Elements Explained][elements-explained]
+#### [Deploy][deploy]
 
-Take closer look at compound elements. Every part of application do it's own
-thing. This guide allows you to learn how use each part of compound and bundle
+This articles show how you can deploy your simple application into heroku
+
+#### [Compound structure][elements-explained]
+
+Take closer look at compound elements. Every part of application does its own
+function. The guide allows you to learn how to use each part of compound and bundle
 it together to create awesome application.
 
 
-### Intermediate things
+### CompoundJS essentials
+
+#### [Testing][testing]
+
+You will find out how you can start your application with unit tests
 
 #### [Routing][routing]
 
@@ -42,7 +50,8 @@ and beautify your views.
 Types of attacks and how to protect your app against them. Which compoundjs
 features could be helpful.
 
-### Advanced topics
+
+### Additional
 
 #### [Meta-programming][meta-controllers]
 
@@ -59,22 +68,17 @@ use API methods to configure compound for your application needs.
 Let's see how to extend compound and make your code reusable using extensions
 API.
 
-#### [Deploy][deploy]
 
-TODO: describe
+[crash-course]: https://github.com/compoundjs/guides/blob/master/basics/crash-course.md
+[elements-explained]: https://github.com/compoundjs/guides/blob/master/basics/elements-explained.md
 
-#### [Testing][testing]
-
-TODO: describe
-
-[crash-course]: https://github.com/compoundjs/guides/blob/master/crash-course.md
-[elements-explained]: https://github.com/compoundjs/guides/blob/master/elements-explained.md
 [routing]: https://github.com/compoundjs/guides/blob/master/routing.md
 [controllers]: https://github.com/compoundjs/guides/blob/master/controllers.md
 [views]: https://github.com/compoundjs/guides/blob/master/views.md
 [helpers]: https://github.com/compoundjs/guides/blob/master/helpers.md
 [mailers]: https://github.com/compoundjs/guides/blob/master/mailers.md
 [security]: https://github.com/compoundjs/guides/blob/master/security.md
+
 [meta-controllers]: https://github.com/compoundjs/guides/blob/master/meta-controllers.md
 [events-api]: https://github.com/compoundjs/guides/blob/master/events-api.md
 [extensions-api]: https://github.com/compoundjs/guides/blob/master/extensions-api.md
