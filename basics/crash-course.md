@@ -1,13 +1,14 @@
 ## Crash Course to CompoundJS
 
-In this guide we will start with creating app using generators. Goal: get
-working application without any additional knoweledge about express, learn
-structure and tools coming with railway, quick overview of main features.
+The guide demonstrates how to creating simple compound app using generators. 
+
+Goal: working application without knowledge of express, learn
+structure and tools coming with compound and get quick overview of main features.
 
 ### What is compound
 
 Before we start I have define compound framework. Compound's formula:
-[Express][express] + structure + extensions. Where **structure** is standard
+[Express][https://github.com/visionmedia/express] + structure + extensions. Where **structure** is standard
 layout of directories, and **extensions** are node modules adding functionality to
 the framework. Compound's goal: provide obvious and well-organized interface for
 express application development. That means everything working with express will
@@ -28,7 +29,7 @@ interface.
 
 3. install dependencies
 
-    cd todo-list app && npm install
+    cd todo-list-app && npm install
 
 Now we have initial compound app structure, we can run application and see
 what's happen. Let's run `node .` command and open http://localhost:3000/ in
