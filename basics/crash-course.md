@@ -119,5 +119,5 @@ path, all route helpers available as methods on `pathTo` object. Examples:
 
 When route matched, request handling passed to corresponding controller#action.
 Controllers located in `./app/controllers`. For example our list controller
-described in `./app/controllers/lists\_controller.js`
+described in `./app/controllers/lists_controller.js`
 
