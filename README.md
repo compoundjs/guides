@@ -1,20 +1,18 @@
 ## CompoundJS guides
 
-### Basics
-
-#### [Getting started][crash-course]
+### [Getting started][crash-course]
 
 Crash course to CompoundJS. Create your first app, learn structure, use
 generators and tools.
 
-#### [Compound Elements Explained][elements-explained]
 
-Take closer look at compound elements. Every part of application do it's own
-thing. This guide allows you to learn how use each part of compound and bundle
-it together to create awesome application.
+### Compound essentials
 
+#### [Elements Explained][elements-explained]
 
-### Intermediate things
+Take a closer look at compound elements. Every part of application does it's own
+thing. The guide allows you to learn how to use each part of compound and bundle
+it together to create awesome applications.
 
 #### [Routing][routing]
 
@@ -37,12 +35,20 @@ Everything about built-in and custom-made helpers.
 Learn how to create your own helpers and helper-related techniques to simplify
 and beautify your views.
 
+#### [Testing][testing]
+
+You will learn how you can create unit tests for your application
+
+#### [Deploy][deploy]
+
+This articles show how you can deploy your applications into heroku
+
+### Advanced topics
+
 #### [Security][security]
 
 Types of attacks and how to protect your app against them. Which compoundjs
 features could be helpful.
-
-### Advanced topics
 
 #### [Meta-programming][meta-controllers]
 
@@ -58,14 +64,6 @@ use API methods to configure compound for your application needs.
 
 Let's see how to extend compound and make your code reusable using extensions
 API.
-
-#### [Deploy][deploy]
-
-TODO: describe
-
-#### [Testing][testing]
-
-TODO: describe
 
 [crash-course]: https://github.com/compoundjs/guides/blob/master/basics/crash-course.md
 [elements-explained]: https://github.com/compoundjs/guides/blob/master/basics/elements-explained.md
