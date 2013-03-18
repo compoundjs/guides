@@ -1,4 +1,4 @@
-### Getting started
+### Getting Started
 
 #### [Crash course][crash-course]
 
@@ -11,7 +11,7 @@ Take a closer look at compound elements - each fulfils it's own
 function. The guide allows you to learn how to use each part of compound and bundle
 it together to create awesome applications.
 
-### Compound essentials
+### Compound Essentials
 
 #### [Routing][routing]
 
@@ -23,12 +23,12 @@ shows you all compound routing map power and beauty.
 Everything you need to know about controllers and request handling flow:
 actions, hooks, middleware stack.
 
-#### [View/layouts rendering][views]
+#### [View/layouts Rendering][views]
 
 Views, layouts, templating engines and all related stuff (except helpers,
 because helpers is a big theme worth separate guide).
 
-#### [View helpers][helpers]
+#### [View Helpers][helpers]
 
 Everything about built-in and custom-made helpers.
 Learn how to create your own helpers and helper-related techniques to simplify
@@ -36,18 +36,18 @@ and beautify your views.
 
 #### [Testing][testing]
 
-Learn how you can create unit tests for your application
+Learn how to test your application
 
 #### [Deploy][deploy]
 
 This articles show how you can deploy your applications into heroku
 
-### Advanced topics
-
 #### [Security][security]
 
 Types of attacks and how to protect your app against them. Which compoundjs
 features could be helpful.
+
+### Advanced topics
 
 #### [Meta-programming][meta-controllers]
 
@@ -59,7 +59,7 @@ reuse controllers code.
 Learn how to use events to hook up particular application loading stages. Then
 use API methods to configure compound for your application needs.
 
-#### [Building extensions][extensions-api]
+#### [Building Extensions][extensions-api]
 
 Let's see how to extend compound and make your code reusable using extensions
 API.
