@@ -7,7 +7,7 @@ tools coming with compound and get quick overview of main features.
 
 ### What is compound
 
-Before we start I have define compound framework. Compound's formula:
+Before we start I have to define compound framework. Compound's formula:
 [Express][express] + structure + extensions. Where **structure** is standard
 layout of directories, and **extensions** are node modules adding functionality to
 the framework. Compound's goal: provide obvious and well-organized interface for
@@ -54,8 +54,8 @@ Run this command
 
     compound generate scaffold list name
 
-It will generate all necessary files for `List` model. Then stop server using
-`CTRL+C` hotkey and run it again to hook up changes.
+It will generate all necessary files for the `List` model. Then stop server
+using `CTRL+C` hotkey and run it again to hook up changes.
 
 > In development mode every modification of existing model, controller or view 
 > file will be updated automatically, but when you modify routes or schema you
@@ -72,8 +72,12 @@ overview of files we have to get lists CRUD (create-read-update-delete) working.
 #### Router
 
 Let's start with routes because this is first place in compound stack where
-request handling happens. Routes listed in file `config/routes.js` which look
-like:
+request handling happens. In other words, when you open
+http://localhost:3000/lists in your browser router should decide what part of
+application should handle this request. Routes are configuration rules explains
+to application what path your application can handle.
+
+Routes listed in file `config/routes.js` which look like:
 
 ```javascript
 exports.routes = function (map) {
@@ -120,4 +124,45 @@ path, all route helpers available as methods on `pathTo` object. Examples:
 
 When route matched, request handling passed to corresponding controller#action.
 Controllers located in `./app/controllers`. For example, our list controller
-described in `./app/controllers/lists_controller.js`
+described in `./app/controllers/lists.js`.
+
+> Please note that the name of controller you've generated using scaffold
+> generator ends with <code>_controller</code>. This is just different format of
+> controller which means that controller code will be `eval`ed in
+> `controllerContext`, it is so-called 'eval-controller'. When file doesn't ends
+> with _controller - it's 'noeval controller', all differences between eval and
+> noeval controllers explained in API docs for
+> [controller](http://compoundjs.com/man/controller.3.html)
+
+Controller consists of set of actions and hooks. Both actions should handle
+request or call `next()` if request could not be handled. In case if `next()`
+called control will be returned to router which will try to match next route to
+handle this request. If action could not handle request because of error, you
+can call `next(err)` and control will be passed to error handler express
+middleware (skipping all routes).
+
+Hooks allows you to prepare environment before action or do something additional
+after action. For example, load list before edit, update, show actions.
+
+The most common results of action: render, send or redirect. And of course
+next(err) - this is most often used result of any action.
+
+The most important thing about controller: it should not contain business logic.
+Of course you able validate your model, do some other things with model before
+create and update. But it will ruine your controller and application code. Just
+do everything in model, use proper ORM which ships validation and hooks.
+
+#### View
+
+Controller action may decide to render view. All views in compound application
+located in `./app/views`. There are also special directory for layouts:
+`./app/views/layouts`. Every view or layout inside app/views could be rendered
+using `render` method of controller context. One thing: you should not point
+view extension. And the last rule: be lazy, do not specify view name when it is
+the same as action name. Example (lists_controller.js):
+
+    action('index', function() {
+        render();
+    });
+
+It will render view 'lists/index' located in `./app/views/lists/index.ejs`.
