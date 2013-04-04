@@ -165,4 +165,13 @@ the same as action name. Example (lists_controller.js):
         render();
     });
 
-It will render view 'lists/index' located in `./app/views/lists/index.ejs`.
+It will render view 'lists/index' located in `./app/views/lists/index.ejs`
+within layout. Layout is some view wrapping target view. Rendered view passed
+into layout as `body` variable. To render view without layout you can specify 
+`{layout: false}` as param or `render` method, or just `this.layout = false`
+inside controller action. You also can specify what layout you want to render
+using `c.layout('name');` method of controller context:
+
+    action('landing', function(c) {
+        c.layout('welcome');
+    });
