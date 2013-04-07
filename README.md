@@ -67,15 +67,15 @@ API.
 [crash-course]: https://github.com/compoundjs/guides/blob/master/basics/crash-course.md
 [elements-explained]: https://github.com/compoundjs/guides/blob/master/basics/elements-explained.md
 
-[routing]: https://github.com/compoundjs/guides/blob/master/routing.md
-[controllers]: https://github.com/compoundjs/guides/blob/master/controllers.md
-[views]: https://github.com/compoundjs/guides/blob/master/views.md
-[helpers]: https://github.com/compoundjs/guides/blob/master/helpers.md
-[mailers]: https://github.com/compoundjs/guides/blob/master/mailers.md
-[security]: https://github.com/compoundjs/guides/blob/master/security.md
+[routing]: https://github.com/compoundjs/guides/blob/master/essentials/routing.md
+[controllers]: https://github.com/compoundjs/guides/blob/master/essentials/controllers.md
+[views]: https://github.com/compoundjs/guides/blob/master/essentials/views.md
+[helpers]: https://github.com/compoundjs/guides/blob/master/essentials/helpers.md
+[mailers]: https://github.com/compoundjs/guides/blob/master/essentials/mailers.md
+[security]: https://github.com/compoundjs/guides/blob/master/essentials/security.md
 
-[meta-controllers]: https://github.com/compoundjs/guides/blob/master/meta-controllers.md
-[events-api]: https://github.com/compoundjs/guides/blob/master/events-api.md
-[extensions-api]: https://github.com/compoundjs/guides/blob/master/extensions-api.md
-[deploy]:  https://github.com/compoundjs/guides/blob/master/deploy.md
-[testing]:  https://github.com/compoundjs/guides/blob/master/testing.md
+[meta-controllers]: https://github.com/compoundjs/guides/blob/master/essentials/meta-controllers.md
+[events-api]: https://github.com/compoundjs/guides/blob/master/advanced/events-api.md
+[extensions-api]: https://github.com/compoundjs/guides/blob/master/advanced/extensions-api.md
+[deploy]:  https://github.com/compoundjs/guides/blob/master/essentials/deploy.md
+[testing]:  https://github.com/compoundjs/guides/blob/master/essentials/testing.md
