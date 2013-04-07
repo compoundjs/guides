@@ -74,7 +74,7 @@ API.
 [mailers]: https://github.com/compoundjs/guides/blob/master/essentials/mailers.md
 [security]: https://github.com/compoundjs/guides/blob/master/essentials/security.md
 
-[meta-controllers]: https://github.com/compoundjs/guides/blob/master/essentials/meta-controllers.md
+[meta-controllers]: https://github.com/compoundjs/guides/blob/master/advanced/meta-controllers.md
 [events-api]: https://github.com/compoundjs/guides/blob/master/advanced/events-api.md
 [extensions-api]: https://github.com/compoundjs/guides/blob/master/advanced/extensions-api.md
 [deploy]:  https://github.com/compoundjs/guides/blob/master/essentials/deploy.md
