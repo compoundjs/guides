@@ -1,17 +1,18 @@
 ## Crash Course to CompoundJS
 
-The guide demonstrates how to create simple compound app using generators.
+The guide demonstrates how to create a simple compound app using generators.
 
-Goal: working application without knowledge of express, learn structure and
-tools coming with compound and get quick overview of main features.
+Goal: to build a working application without any knowledge of the express framework, 
+learn how to structure a compoundjs app, use the tools that come with the compoundjs 
+framework, and get quick overview of its main features.
 
 ### What is compound
 
 Before we start I have to define compound framework. Compound's formula:
-[Express][express] + structure + extensions. Where **structure** is standard
+[Express][express] + structure + extensions. Where **structure** is  the standard
 layout of directories, and **extensions** are node modules adding functionality to
-the framework. Compound's goal: provide obvious and well-organized interface for
-express application development. That means everything working with express will
+the framework. Compound's goal: to provide obvious and well-organized interface for
+express compatible application development. That means everything working with express will
 work with compound.
 
 Now we can start building app. Let's create todo-list app with REST API and web
@@ -31,7 +32,7 @@ interface.
 
     cd todo-list-app && npm install
 
-Now we have initial compound app structure, we can run application and see
+Now that we have the initial compound app structure, we can run application and see
 what will happen. Let's run `node .` command and open http://localhost:3000/ in
 browser.
 
@@ -64,8 +65,8 @@ using `CTRL+C` hotkey and run it again to hook up changes.
 
 Then visit http://localhost:3000/lists to check how it works.
 
-Now we have some stuff in out application to explore structure, let's do brief
-overview of files we have to get lists CRUD (create-read-update-delete) working.
+Now that we have some files in out application to explore its structure, let's get a 
+brief overview of the files we have to get lists CRUD (create-read-update-delete) working.
 
 ### Explore app structure
 
@@ -73,7 +74,7 @@ overview of files we have to get lists CRUD (create-read-update-delete) working.
 
 Let's start with routes because this is first place in compound stack where
 request handling happens. In other words, when you open
-http://localhost:3000/lists in your browser router should decide what part of
+http://localhost:3000/lists in your browser, the router should decide what part of
 application should handle this request. Routes are configuration rules explains
 to application what path your application can handle.
 
@@ -87,8 +88,8 @@ exports.routes = function (map) {
 };
 ```
 
-Line `map.resources('lists');` was added by list scaffold generator. We can see
-which express routes was created by this line using `compound routes` command:
+The line `map.resources('lists');` was added by list scaffold generator. We can see
+which express routes were created by this line using `compound routes` command:
 
 ```text
      lists GET    /lists.:format?          lists#index
@@ -102,7 +103,7 @@ which express routes was created by this line using `compound routes` command:
            ALL    /:controller/:action/:id undefined#undefined
 ```
 
-First column is route helper name, second - method, third - route, last -
+The first column is route helper name, second - method, third - route, last -
 controller#action to handle request. Helper name should be used to generate
 path, all route helpers available as methods on `pathTo` object. Examples:
 
@@ -122,8 +123,8 @@ path, all route helpers available as methods on `pathTo` object. Examples:
 
 #### Controller
 
-When route matched, request handling passed to corresponding controller#action.
-Controllers located in `./app/controllers`. For example, our list controller
+When a route is matched, request handling is passed to the corresponding controller#action.
+Controllers are located in `./app/controllers`. For example, our list controller is
 described in `./app/controllers/lists.js`.
 
 > Please note that the name of controller you've generated using scaffold
@@ -134,40 +135,46 @@ described in `./app/controllers/lists.js`.
 > noeval controllers explained in API docs for
 > [controller](http://compoundjs.com/man/controller.3.html)
 
-Controller consists of set of actions and hooks. Both actions should handle
-request or call `next()` if request could not be handled. In case if `next()`
-called control will be returned to router which will try to match next route to
-handle this request. If action could not handle request because of error, you
-can call `next(err)` and control will be passed to error handler express
+The controller consists of set of actions and hooks. Both actions should handle
+the request or call `next()` if the request could not be handled. If `next()` is
+called, control will be returned to the router which will try to match next route to
+handle this request. Otherwise, if the action could not handle request because of an error, 
+you can call `next(err)` and then control will be passed to error handler express
 middleware (skipping all routes).
 
-Hooks allows you to prepare environment before action or do something additional
+Hooks allows you to prepare the environment before an action or do something additional
 after action. For example, load list before edit, update, show actions.
 
-The most common results of action: render, send or redirect. And of course
-next(err) - this is most often used result of any action.
+The most common results of action are: `render`, `send` and `redirect`. And of course
+`next(err)` - this is most often used result of any action.
 
 The most important thing about controller: it should not contain business logic.
-Of course you able validate your model, do some other things with model before
-create and update. But it will ruine your controller and application code. Just
-do everything in model, use proper ORM which ships validation and hooks.
+While you can validate your model, and do things to it before create and update, 
+this logic is better left to the model. Best practice is to do everything in model, 
+keep your controllers skinny, and use proper ORM, which ships validation and hooks.
 
 #### View
 
-Controller action may decide to render view. All views in compound application
-located in `./app/views`. There are also special directory for layouts:
+Controller action may decide to render view. All views in a compound application
+are located in `./app/views`. There is also a special directory for layouts:
 `./app/views/layouts`. Every view or layout inside app/views could be rendered
-using `render` method of controller context. One thing: you should not point
-view extension. And the last rule: be lazy, do not specify view name when it is
-the same as action name. Example (lists_controller.js):
+using `render` method of controller context. One thing to note: you can omit the
+extention when rendering views. And the last rule: be lazy, do not specify view name 
+when it is the same as action name. Example (lists_controller.js):
 
     action('index', function() {
         render();
     });
 
 It will render view 'lists/index' located in `./app/views/lists/index.ejs`
-within layout. Layout is some view wrapping target view. Rendered view passed
-into layout as `body` variable. To render view without layout you can specify 
+within the layout. The convention is that unless you are calling a view with name
+other than the action name, you can omit it.
+
+##### Layouts
+
+A layout is a view wrapping the target view. By convention, the layout called will
+share the same name as the controller. A rendered view is passed into a layout as 
+the `body` variable. To render a view without layout you can specify 
 `{layout: false}` as param or `render` method, or just `this.layout = false`
 inside controller action. You also can specify what layout you want to render
 using `c.layout('name');` method of controller context:
