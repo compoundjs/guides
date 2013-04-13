@@ -151,6 +151,7 @@ tokens.
 Use the `inputTag` helper to create a form <input> in a form where you _don't have a resource_. 
 
 **Example:**
+
     <%- inputTag({name: 'creditCard', type: 'text', autocomplete: 'off'}) %>
 
 This produces:
@@ -213,7 +214,7 @@ following example:
     <%- form.label('name', 'Name', {style: 'font-size: 10px'}) %>
 
 The second argument is omitted if i18n is turned on, and the desired value from locale file is used 
-automatically. For example, if we have a es.yml (_Spanish_:
+automatically. For example, if we have a es.yml ( _Spanish_ ):
 
     es:
       models:
