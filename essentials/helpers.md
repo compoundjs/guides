@@ -86,6 +86,7 @@ The `form` object has the following availble helpers:
  * `textarea`
  * `submit`
  * `checkbox`
+ * `select`
 
 Let's see an example of a form:
 
@@ -166,6 +167,30 @@ of the resource(in this case `User`) passed to form, and specifies it as a value
 
     <input name="name" value="Sascha" />
 
+######Select Boxes / Dropdown Lists
+
+`<select>` boxes are easy to create if you follow this convention:
+
+**If your data is structured like this:**
+
+    var states = [
+     ...,
+     { name: 'California', _id: 3 },
+     { name: 'Texas', _id: 47, selected: true },
+     ...
+    ]
+
+**...and your form is structured like this:**
+
+    <%- form.select('state', States, { fieldname: 'name', fieldvalue: '_id' }) %>
+
+**...your select list will look like this:**
+
+    <select name="states">
+      <option value="3">California</option>
+      <option value="47" selected="selected">Texas</option>
+    </select>
+
 ######Labels
 
 Use the `labelTag` to create labels for your forms. Just like the `inputTag` above, there are two 
@@ -232,64 +257,69 @@ Submit tags follow the same conventions as `inputTag` and `form.input`, but prod
 
 ######All Together Now
 
-Let's put all the form helpers together, and create an address form. Since we are using Twitter Bootstrap,
-let's also give it some markup to make it look pretty, too.
+Let's put all the form helpers together, and create an address form with a select-list for States. Since 
+we are using Twitter Bootstrap, let's also give it some markup to make it look pretty, too.
 
 We are going to assume a couple things:
 
  * You have an `Address` model that has properties that match those of our form
  * That `states` is populated from a model, and passed from your controller to your view as a `states` object
+ * You are using `ejs` as your template engine (this can be easily used with `jade` as well)
 
 ```
-		<legend>Add Address</legend>
-		
-		<input type="hidden" name="action" value="<%- attr.action %>">
-		
-		<div class="control-group">
-			<%- form.label('line_1', 'Address Line One', {'class': 'control-label'}) %> 
-			<div class="controls">
-				<%- form.input('line_1', { 'placeholder': '14000 Morris Ln', 'class': 'span4' }) %> 
-			</div>
-		</div>
+	<% var form= formFor(user, { id: 'nameForm', class: 'form-horizontal'}); %>
+	<%- form.begin() %>
 
-		<div class="control-group">
-			<%- form.label('line_2', 'Address Line Two', {'class': 'control-label'}) %> 
-			<div class="controls">
-				<%- form.input('line_2', { 'placeholder': 'West Tower Plaza', 'class': 'span4' }) %> 
-			</div>
+	<legend>Add Address</legend>
+	
+	<div class="control-group">
+		<%- form.label( 'line_1', 'Address Line One', { 'class': 'control-label'}) %>
+		<div class="controls">
+			<%- form.input( 'line_1', { 'placeholder': '14000 Morris Ln', 'class': 'span4' }) %>
 		</div>
-		
-		<div class="control-group">
-			<%- form.label('city', 'City', {'class': 'control-label'}) %> 
-			<div class="controls">
-				<%- form.input('city', { 'placeholder': 'Los Angeles', 'class': 'span4' }) %> 
-			</div>
+	</div>
+	
+	<div class="control-group">
+		<%- form.label( 'line_2', 'Address Line Two', { 'class': 'control-label'}) %>
+		<div class="controls">
+			<%- form.input( 'line_2', { 'placeholder': 'West Tower Plaza', 'class': 'span4' }) %>
 		</div>
-		
-		<div class="control-group">
-			<%- form.label('states', 'State', {'class': 'control-label'}) %> 
-			<div class="controls">
-				<select name="states">
-					<% states.forEach(function (state){ %>
-						<option value="<%- state.value %>"><%- state.text %></option>
-					<% }); %>   
-				</select>
-			</div>
+	</div>
+	
+	<div class="control-group">
+		<%- form.label( 'city', 'City', { 'class': 'control-label'}) %>
+		<div class="controls">
+			<%- form.input( 'city', { 'placeholder': 'Los Angeles', 'class': 'span4' }) %>
 		</div>
+	</div>
+	
+	<div class="control-group">
+		<%- form.label( 'states', 'State', { 'class': 'control-label'}) %>
+		<div class="controls">
+		  <%- form.select('state', States, { fieldname: 'name', fieldvalue: '_id' }) %>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<%- form.label( 'county', 'County', { 'class': 'control-label'}) %>
+		<div class="controls">
+			<%- form.input( 'county', { 'placeholder': 'Jefferson', 'class': 'span4' }) %>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<%- form.label( 'postal_code', 'Zip Code', { 'class': 'control-label'}) %>
+		<div class="controls">
+			<%- form.input( 'postal_code', { 'placeholder': '12345', 'class': 'span1' }) %>
+		</div>
+	</div>
+	
+	<div class="form-actions">
+		<%- form.submit( '<i class="icon-ok icon-white"></i>', { class: 'btn btn-primary' }) %>
+			<%- linkTo( 'Cancel', pathTo.addresses, { class: 'btn cancel' }) %>
+	</div>
 
-		<div class="control-group">
-			<%- form.label('county', 'County', {'class': 'control-label'}) %> 
-			<div class="controls">
-				<%- form.input('county', { 'placeholder': 'Jefferson', 'class': 'span4' }) %> 
-			</div>
-		</div>
-		
-		<div class="control-group">
-			<%- form.label('postal_code', 'Zip Code', {'class': 'control-label'}) %> 
-			<div class="controls">
-				<%- form.input('postal_code', { 'placeholder': '12345', 'class': 'span1' }) %> 
-			</div>
-		</div>
+	<%- form.end() %>
 		
 ```
 
