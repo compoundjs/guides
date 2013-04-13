@@ -262,7 +262,7 @@ for example we want redis in development env:
 
 { development: { driver: 'redis' } }
 
-We need one more thing we need at this point - install jugglingdb ORM, using npm:
+We need one more thing at this point - install jugglingdb ORM, using npm:
 
     npm install jugglingdb
 
