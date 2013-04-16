@@ -37,8 +37,8 @@ In the example above, from left-to-right:
 
 **Examples:**
 
- * `linkTo('Cancel', pathTo.users, { class: 'btn', id: 'cancel' )`
- * `linkTo('Add Another', false, { class: 'add-to-cart', data-item: 'WDGT-3000' )`
+ * `linkTo('Cancel', pathTo.users, { class: 'btn', id: 'cancel'})`
+ * `linkTo('Add Another', false, { class: 'add-to-cart', data-item: 'WDGT-3000'})`
 
 **Date-Remote:**
 
@@ -92,10 +92,12 @@ Let's see an example of a form:
 
     <% var form = formFor(user, { action: path_to.users }); %>
     <%- form.begin() %>
-
-    <%- form.label('name', 'Username') %> <%- form.input('name') %>
-    <%- form.submit('Save') %>
-
+    <p>
+      <%- form.label('name', 'Username') %> <%- form.input('name') %>
+    </p>
+    <p>
+      <%- form.submit('Save') %>
+    </p>
     <%- form.end() %>
 
 Which ouputs:
@@ -179,7 +181,7 @@ of the resource(in this case `User`) passed to form, and specifies it as a value
      { name: 'California', _id: 3 },
      { name: 'Texas', _id: 47, selected: true },
      ...
-    ]
+    ];
 
 **...and your form is structured like this:**
 
@@ -254,7 +256,7 @@ And everywhere you had `name` in a form just use:
 Submit tags follow the same conventions as `inputTag` and `form.input`, but produce a submit button: 
 
     <%- submitTag('Submit data') %>
-    <%- form.submit('Submit data', {options}) %
+    <%- form.submit('Submit data', {options}) %>
 
 ##### All Together Now
 
@@ -267,7 +269,7 @@ We are going to assume a couple things:
  * That `states` is populated from a model, and passed from your controller to your view as a `states` object
  * You are using `ejs` as your template engine (this can be easily used with `jade` as well)
 
-
+```ejs
     <% var form= formFor(user, { id: 'nameForm', class: 'form-horizontal'}); %>
     <%- form.begin() %>
 
@@ -322,6 +324,7 @@ We are going to assume a couple things:
     </div>
 
     <%- form.end() %>
+```
 
 ### JavaScript & CSS
 
