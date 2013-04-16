@@ -23,6 +23,12 @@ shows you all compound routing map power and beauty.
 Everything you need to know about controllers and request handling flow:
 actions, hooks, middleware stack.
 
+#### [Models][models]
+Brief guide with some examples and advices for JugglingDB starters. This is not
+complete guide, but better than nothing. See
+[documenatation](http://jugglingdb.co) for more information about JugglingDB ORM
+used in CompoundJS.
+
 #### [View/layouts Rendering][views]
 
 Views, layouts, templating engines and all related stuff (except helpers,
@@ -69,6 +75,7 @@ API.
 
 [routing]: https://github.com/compoundjs/guides/blob/master/essentials/routing.md
 [controllers]: https://github.com/compoundjs/guides/blob/master/essentials/controllers.md
+[models]: http://nosolopau.github.io/jugglingdb-missing-docs/
 [views]: https://github.com/compoundjs/guides/blob/master/essentials/views.md
 [helpers]: https://github.com/compoundjs/guides/blob/master/essentials/helpers.md
 [mailers]: https://github.com/compoundjs/guides/blob/master/essentials/mailers.md
