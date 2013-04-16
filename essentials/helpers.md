@@ -1,6 +1,6 @@
-### Helpers
+## Helpers
 
-####Links
+### Links
 
 Creating links in Compound is easy with the `linkTo` and `pathTo` helpers. Using them
 will help to make your app more portable and easier to maintain.
@@ -12,7 +12,7 @@ the following link in our view:
 
 While that may work for now, we can also use a helper to create the link for us:
 
-`link_to('Users', pathTo.users)`
+`linkTo('Users', pathTo.users)`
 
 The benefit of using `pathTo`, is that it will handle the adding the path to page for you,
 using the routes configuration file (`/config/routes.js`). 
@@ -31,14 +31,14 @@ In the example above, from left-to-right:
  * `/users.:format?` - This tells us what the link looks like, and what paramaters it takes. In this example, the _format_ describes what this contoller action responds to (see controllers for `respondsTo`).    
  * `users#index` - Convention is _controller_ # _action_, so this example will look for the `index` action in the `users` controller. 
 
-#####Customizing Links
+### Customizing Links
 
 `linkTo` also takes optional arguments so that you can add classes, id, etc.
 
 **Examples:**
 
- * `link_to('Cancel', pathTo.users, { class: 'btn', id: 'cancel' )`
- * `link_to('Add Another', false, { class: 'add-to-cart', data-item: 'WDGT-3000' )`
+ * `linkTo('Cancel', pathTo.users, { class: 'btn', id: 'cancel' )`
+ * `linkTo('Add Another', false, { class: 'add-to-cart', data-item: 'WDGT-3000' )`
 
 **Date-Remote:**
 
@@ -114,7 +114,7 @@ Which ouputs:
 </form>
 ```
 
-#####Quick Forms
+#### Quick Forms
  
 Forms can also be created without requiring a resource with `formTagBegin`. This is the "light" 
 version of the `formFor` helper which expects only one argument: `params`. Use this helper when you 
@@ -144,9 +144,9 @@ tokens.
       </p>        
     </form>
 
-#####Form Elements
+#### Form Elements
 
-######Inputs
+##### Inputs
 
 Use the `inputTag` helper to create a form <input> in a form where you _don't have a resource_. 
 
@@ -168,7 +168,7 @@ of the resource(in this case `User`) passed to form, and specifies it as a value
 
     <input name="name" value="Sascha" />
 
-######Select Boxes / Dropdown Lists
+##### Select Boxes / Dropdown Lists
 
 `<select>` boxes are easy to create if you follow this convention:
 
@@ -192,7 +192,7 @@ of the resource(in this case `User`) passed to form, and specifies it as a value
       <option value="47" selected="selected">Texas</option>
     </select>
 
-######Labels
+##### Labels
 
 Use the `labelTag` to create labels for your forms. Just like the `inputTag` above, there are two 
 variations of the `labelTag`:
@@ -249,14 +249,14 @@ And everywhere you had `name` in a form just use:
     <%- form.label('name', {options}) %>
     // <label for="name">Name of user</label>
 
-######Submit
+##### Submit
 
 Submit tags follow the same conventions as `inputTag` and `form.input`, but produce a submit button: 
 
     <%- submitTag('Submit data') %>
     <%- form.submit('Submit data', {options}) %
 
-######All Together Now
+##### All Together Now
 
 Let's put all the form helpers together, and create an address form with a select-list for States. Since 
 we are using Twitter Bootstrap, let's also give it some markup to make it look pretty, too.
@@ -267,71 +267,70 @@ We are going to assume a couple things:
  * That `states` is populated from a model, and passed from your controller to your view as a `states` object
  * You are using `ejs` as your template engine (this can be easily used with `jade` as well)
 
-```
-	<% var form= formFor(user, { id: 'nameForm', class: 'form-horizontal'}); %>
-	<%- form.begin() %>
 
-	<legend>Add Address</legend>
-	
-	<div class="control-group">
-		<%- form.label( 'line_1', 'Address Line One', { 'class': 'control-label'}) %>
-		<div class="controls">
-			<%- form.input( 'line_1', { 'placeholder': '14000 Morris Ln', 'class': 'span4' }) %>
-		</div>
-	</div>
-	
-	<div class="control-group">
-		<%- form.label( 'line_2', 'Address Line Two', { 'class': 'control-label'}) %>
-		<div class="controls">
-			<%- form.input( 'line_2', { 'placeholder': 'West Tower Plaza', 'class': 'span4' }) %>
-		</div>
-	</div>
-	
-	<div class="control-group">
-		<%- form.label( 'city', 'City', { 'class': 'control-label'}) %>
-		<div class="controls">
-			<%- form.input( 'city', { 'placeholder': 'Los Angeles', 'class': 'span4' }) %>
-		</div>
-	</div>
-	
-	<div class="control-group">
-		<%- form.label( 'states', 'State', { 'class': 'control-label'}) %>
-		<div class="controls">
-		  <%- form.select('state', States, { fieldname: 'name', fieldvalue: '_id' }) %>
-		</div>
-	</div>
-	
-	<div class="control-group">
-		<%- form.label( 'county', 'County', { 'class': 'control-label'}) %>
-		<div class="controls">
-			<%- form.input( 'county', { 'placeholder': 'Jefferson', 'class': 'span4' }) %>
-		</div>
-	</div>
-	
-	<div class="control-group">
-		<%- form.label( 'postal_code', 'Zip Code', { 'class': 'control-label'}) %>
-		<div class="controls">
-			<%- form.input( 'postal_code', { 'placeholder': '12345', 'class': 'span1' }) %>
-		</div>
-	</div>
-	
-	<div class="form-actions">
-		<%- form.submit( '<i class="icon-ok icon-white"></i>', { class: 'btn btn-primary' }) %>
-			<%- linkTo( 'Cancel', pathTo.addresses, { class: 'btn cancel' }) %>
-	</div>
+    <% var form= formFor(user, { id: 'nameForm', class: 'form-horizontal'}); %>
+    <%- form.begin() %>
 
-	<%- form.end() %>
-		
-```
 
-####JavaScript & CSS
+    <legend>Add Address</legend>
 
-[ ... ]
+    <div class="control-group">
+        <%- form.label( 'line_1', 'Address Line One', { 'class': 'control-label'}) %>
+        <div class="controls">
+            <%- form.input( 'line_1', { 'placeholder': '14000 Morris Ln', 'class': 'span4' }) %>
+        </div>
+    </div>
 
-####Content Tags
+    <div class="control-group">
+        <%- form.label( 'line_2', 'Address Line Two', { 'class': 'control-label'}) %>
+        <div class="controls">
+            <%- form.input( 'line_2', { 'placeholder': 'West Tower Plaza', 'class': 'span4' }) %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <%- form.label( 'city', 'City', { 'class': 'control-label'}) %>
+        <div class="controls">
+            <%- form.input( 'city', { 'placeholder': 'Los Angeles', 'class': 'span4' }) %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <%- form.label( 'states', 'State', { 'class': 'control-label'}) %>
+        <div class="controls">
+          <%- form.select('state', States, { fieldname: 'name', fieldvalue: '_id' }) %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <%- form.label( 'county', 'County', { 'class': 'control-label'}) %>
+        <div class="controls">
+            <%- form.input( 'county', { 'placeholder': 'Jefferson', 'class': 'span4' }) %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <%- form.label( 'postal_code', 'Zip Code', { 'class': 'control-label'}) %>
+        <div class="controls">
+            <%- form.input( 'postal_code', { 'placeholder': '12345', 'class': 'span1' }) %>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <%- form.submit( '<i class="icon-ok icon-white"></i>', { class: 'btn btn-primary' }) %>
+            <%- linkTo( 'Cancel', pathTo.addresses, { class: 'btn cancel' }) %>
+    </div>
+
+    <%- form.end() %>
+
+### JavaScript & CSS
 
 [ ... ]
 
-####Custom Helpers
+### Content Tags
+
+[ ... ]
+
+### Custom Helpers
 
 [ ... ]
