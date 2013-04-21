@@ -9,7 +9,7 @@ this guide, we will be using [ejs](https://github.com/visionmedia/ejs) and
 engines around.
 
 You can choose to use any view/templating engine that you want, and if you ever
-want to change it, it's as as easy as changing one line in apps _environment_ file.
+want to change it, it's as as easy as changing one line in you app's _environment_ file.
 
 **Ex. ./config/environment.js**
 
@@ -99,8 +99,6 @@ so on.
  * In Compound, as in Express, neither templating engine requires "locals", so that means that _any_
 variable/array/object available to the parent are fully accessible to the partial, and that goes for
 partials calling partials as well.
-
-[ Coming Soon ]
 
 ### Views Best Practices
 
