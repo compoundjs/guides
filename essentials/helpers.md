@@ -8,22 +8,22 @@ will help to make your app more portable and easier to maintain.
 Say we have a Users model, and an index page listing all our users. We could create
 the following link in our view:
 
-`<a href="/users/index">Users</a>`
+    <a href="/users/index">Users</a>
 
 While that may work for now, we can also use a helper to create the link for us:
 
-`linkTo('Users', pathTo.users)`
+    linkTo('Users', pathTo.users)
 
 The benefit of using `pathTo`, is that it will handle the adding the path to page for you,
 using the routes configuration file (`/config/routes.js`). 
 
 To see your routes, do the following in the node console:
 
-`compound routes`
+    compound routes
 
 And you will get a list of your current routes in the following format:
 
-`users GET    /users.:format?    users#index`
+    users GET    /users.:format?    users#index`
 
 In the example above, from left-to-right:
 
@@ -59,11 +59,11 @@ You can also specify a jsonp parameter to handle the response:
 The server will reply with json response { users: [ {}, {}, {} ] }, and this object will be passed as an argument 
 to the _renderUsers_ function (you will need to create this method in your users_controller):
 
-`renderUsers({users: [{},{},{}]});`
+    renderUsers({users: [{},{},{}]});
 
 You can also specify an anonymous function in the jsonp param:
 
-`{ jsonp: '(function (url) { location.href = url; })' }`
+    { jsonp: '(function (url) { location.href = url; })' }
 
 If the server sent you "http://google.com/", the following javascript will be evaluated:
 
@@ -328,12 +328,64 @@ We are going to assume a couple things:
 
 ### JavaScript & CSS
 
-[ ... ]
+Calling CSS and JavaScript files in your views are easy.  
+
+For CSS:
+
+    stylesheet_link_tag('bootstrap', 'application', '...')
+
+and for JavaScript:
+
+    javascript_include_tag('application', 'date-picker', '...') 
+
+You do not need to include the file extension, because Compound will add it for you. 
+All paths are _relative_ to the _/public/stylesheets_ and _/public/javascripts_ directories, 
+respectively.
+
+If you want to include an external CSS or JavaScript, you can use the following format:
+
+    javascript_include_tag('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+
+> In the example above, the preceding _http_ or _https_ was ommitted, since Google's CDN 
+> provides both SSL and non-SSL versions of the file. Your browser will append the appropriate
+> prefix. 
 
 ### Content Tags
 
-[ ... ]
+[ coming soon ]
 
 ### Custom Helpers
 
-[ ... ]
+You can create your own custom helpers to perform simple tasks for your view's content.
+Helpers are found in the `app/helpers` directory, and they are named in following convention:
+
+    controller_helper.js
+
+Where _controller_ is the name of the controller (and therefore the directory where the views
+reside).
+
+If you want a controller to affect the entire application, add it to the _application_helper.js_
+file.
+
+Let's create a helper to format a date:
+
+    module.exports = {
+      ...
+
+      formatDate: function (date) {
+        return date.toUTCString();
+      },
+
+      ...  
+
+    };
+
+
+Assuming that we have a `date` varaiable available to our view, we can use our custom helper in view 
+to format it like this:
+
+    Created on: <%- formatDate(date) %> 
+
+
+##Authors
+[Daniel Lochrie](https://github.com/dlochrie)

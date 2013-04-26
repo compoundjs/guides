@@ -71,26 +71,25 @@ to your view, so you can simplify the view above like so:
 > Tip: Don't add the extension to the your view when you are rendering it - Compound is aware of the 
 templating/view engine, and will know what extension to add.
 
-### Partials - Including a View Inside Another View
+### Inludes - Including a View Inside Another View
 
-_Partials_, also called _includes_, are views that are called by other views. Partials are very 
+_Includes_, also called _partials_, are views that are called by other views. _Includes_ are very 
 helpful for forms (`edit` and `add` for most resources share _most_ of the form), header files, 
 rendering rows in a table, and more. 
 
 #### Using Partials/Includes
 
-In `ejs`, we can include a view inside of another view by following this pattern:
+In `ejs`, we can include a view inside of another view by following this pattern:  
 
-    <%- include _form %>
+    <%- include _form %>  
 
-... and in `jade` by the following pattern:
+... and in `jade` by the following pattern:  
 
     include _form
 
-As you can see, the two templating engines are nearly identical in how they call _partials_ 
-(aka _includes_). 
+As you can see, the two templating engines are nearly identical in how they call _includes_. 
 
-They are also alike in the following ways:
+_Partials_ share the following conventions in both `ejs` and `jade`:
 
  * Neither `ejs` nor `jade` require the use of the file's extension (_.ejs_, _.jade_).
  * Both call the included file by looking for it _relative_ to the calling file. So if you don't
@@ -145,3 +144,6 @@ left your controller and models.
 
 Remember to ask yourself, is this data available to my view? If not, then most likely you will need to go 
 back to your controller/model and refactor.
+
+##Authors
+[Daniel Lochrie](https://github.com/dlochrie)
