@@ -183,3 +183,8 @@ using `c.layout('name');` method of controller context:
     action('landing', function(c) {
         c.layout('welcome');
     });
+
+##Authors
+Anatoliy Chakkaev
+[Daniel Lochrie](https://github.com/dlochrie)
+

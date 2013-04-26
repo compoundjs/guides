@@ -274,3 +274,7 @@ case it's `redis`:
 
 Compound, through JugglingDB, currently supports multiple databases, including MongoDB, MySQL, and more. See the full list 
 [here](https://github.com/1602/jugglingdb).
+
+##Authors
+Anatoliy Chakkaev
+[Daniel Lochrie](https://github.com/dlochrie)
