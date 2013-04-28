@@ -20,20 +20,25 @@ interface.
 
 ### First steps: install compound and generate app
 
-1. install compound using npm  
+0. install nodejs (v 0.8.0+) - http://nodejs.org/download/
+    `node --version`
 
-    `npm install compound`
+1. install compound using npm.  Doing this globally enables the `compound` command line tool.  You might need to sudo.
 
-2. generate app  
+    `npm install compound -g`
+
+2. generate app using the `compound` command line.  This creates an application with the default compoundjs structure.
 
     `compound init todo-list-app`
 
-3. install dependencies  
+3. install dependencies (see package.json for default dependencies.  They will be downloaded to node_modules dir)
 
     `cd todo-list-app && npm install`
+    
 
-Now that we have the initial compound app structure, we can run application and see
-what will happen. Let's run `node .` command and open 
+Now that we have the initial compound app structure, we can run your new compoundjs application. 
+
+Let's run `node .` command and open 
 [http://localhost:3000/](http://localhost:3000/) in browser.
 
 > **NOTE** `node .` command is simple way to run application in current
