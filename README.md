@@ -2,37 +2,37 @@
 
 #### [Crash course][crash-course]
 
-Express course to CompoundJS. Create your first app, learn structure, use
-generators and tools.
+This is a quick course on CompoundJS. Create your first app and learn basic structure and use
+of the powerful CompoundJS generators and tools.
 
 #### [Elements Explained][elements-explained]
 
-Take a closer look at compound elements - each fulfils it's own
-function. The guide allows you to learn how to use each part of compound and bundle
-it together to create awesome applications.
+Take a closer look at CompoundJS elements; each fulfills its own
+function. This guide teaches you how to use each part of CompoundJS and bundle
+those parts together to create awesome applications.
 
-### Compound Essentials
+### CompoundJS Essentials
 
 #### [Routing][routing]
 
-How to draw your application's routing map in few expressions. This guide
-shows you all compound routing map power and beauty.
+Draw your application's routing map in a few expressions. This guide
+shows you the power and beauty of the CompoundJS routing map.
 
 #### [Controllers][controllers]
 
-Everything you need to know about controllers and request handling flow:
-actions, hooks, middleware stack.
+Everything you need to know about controllers and the request handling flow:
+actions, hooks, and the middleware stack.
 
 #### [Models][models]
-Brief guide with some examples and advices for JugglingDB starters. This is not
+Brief guide with some examples and advice for JugglingDB starters. This is not a
 complete guide, but better than nothing. See
-[documenatation](http://jugglingdb.co) for more information about JugglingDB ORM
+[documenatation](http://jugglingdb.co) for more information about the JugglingDB ORM
 used in CompoundJS.
 
 #### [View/layouts Rendering][views]
 
 Views, layouts, templating engines and all related stuff (except helpers,
-because helpers is a big theme worth separate guide).
+because helpers are a big theme worthy of a separate guide).
 
 #### [View Helpers][helpers]
 
@@ -42,32 +42,32 @@ and beautify your views.
 
 #### [Testing][testing]
 
-Learn how to test your application
+Learn how to test your application.
 
 #### [Deploy][deploy]
 
-This articles show how you can deploy your applications into heroku
+This guide shows how you can deploy your applications into heroku.
 
 #### [Security][security]
 
-Types of attacks and how to protect your app against them. Which compoundjs
+Types of attacks and how to protect your app against them. Which CompoundJS
 features could be helpful.
 
 ### Advanced topics
 
 #### [Meta-programming][meta-controllers]
 
-Short talk about meta-programming techniques could be used to DRY controllers and
-reuse controllers code.
+Short guide about meta-programming techniques that could be used to DRY controllers and
+reuse controller code.
 
 #### [Events, Compound API][events-api]
 
 Learn how to use events to hook up particular application loading stages. Then
-use API methods to configure compound for your application needs.
+use API methods to configure CompoundJS for your application needs.
 
 #### [Building Extensions][extensions-api]
 
-Let's see how to extend compound and make your code reusable using extensions
+Let's see how to extend CompoundJS and make your code reusable using the extensions
 API.
 
 [crash-course]: https://github.com/compoundjs/guides/blob/master/basics/crash-course.md
