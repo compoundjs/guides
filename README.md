@@ -2,7 +2,7 @@
 
 #### [Crash course][crash-course]
 
-This is a quick course on CompoundJS. Create your first app and learn basic structure and use
+This is a quick course on CompoundJS. It walks you through creating your first app and will help you learn the basic structure and use
 of the powerful CompoundJS generators and tools.
 
 #### [Elements Explained][elements-explained]
@@ -57,7 +57,7 @@ features could be helpful.
 
 #### [Meta-programming][meta-controllers]
 
-Short guide about meta-programming techniques that could be used to DRY controllers and
+Short guide about meta-programming techniques that could be used to apply DRY to controllers and
 reuse controller code.
 
 #### [Events, Compound API][events-api]
