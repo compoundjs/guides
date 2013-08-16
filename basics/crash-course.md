@@ -1,15 +1,15 @@
 ## Crash Course to CompoundJS
 
-This guide demonstrates how to create a simple compound app using generators.
+This guide demonstrates how to create a simple compound app using the included generators.
 
 Goal: to build a working application without any knowledge of the express framework, 
 learn how to structure a compoundjs app, use the tools that come with the compoundjs 
-framework, and get quick overview of its main features.
+framework, and get a quick overview of compounds main features.
 
-### What is compound
+### What is compound?
 
 Before we start, let's take a look at the compound framework. Compound's formula is
-[Express][express] + structure + extensions. Where **structure** is  the standard
+[Express][express] + **structure** + **extensions**. Where **structure** is  the standard
 layout of directories, and **extensions** are node modules adding functionality to
 the framework. Compound's goal is to provide an obvious and well-organized interface for
 express compatible application development. This means that everything that works with 
@@ -25,13 +25,15 @@ interface.
 
 1. install compound using npm.  Doing this globally enables the `compound` command line tool.  You might need to sudo.
 
-    `npm install compound -g`
+    `npm install compound -g` 
+    or
+    `sudo npm install compound -g`
 
 2. generate the todo-list app using the `compound` command line.  This creates an application with the default compoundjs structure.
 
     `compound init todo-list-app`
 
-3. install dependencies (see package.json for default dependencies.  They will be downloaded to the node_modules dir)
+3. install the dependencies (see package.json for default dependencies.  They will be downloaded to the node_modules dir)
 
     `cd todo-list-app && npm install`
     
@@ -50,19 +52,19 @@ and debug info (this appears after you click on the corresponding link). This is
 file located `./public/index.html`. Everything in the `./public` dir will be
 available to your app as static content so client-side javascripts and stylesheets should be saved here.
 
-> **NOTE** some javascripts and stylesheets could be generated from coffee or
-> sass / less / stylus. Sources for these files located at `./app/assets` and
+> **NOTE** some javascript files and stylesheets may be generated from coffee or
+> sass / less / stylus. Sources for these files are located at `./app/assets` and
 > compiled automatically using `co-assets-compiler` extension module.
 
 ### Generate scaffolding for Lists
 
 Run this command:
 
-    compound generate scaffold list name
+    `compound generate scaffold list name`
 
 It will generate all necessary files for the `List` model. 
 
-if you haven't already done so, stop the server using the `CTRL+C` hotkey and restart it using `node .` so that you can review the changes in your browser.
+if you haven't already done so, stop the server using the `CTRL+C` hotkey and restart it using `node .` (or your preferred startup command) so that you can review the changes in your browser.
 
 > In development mode every modification of an existing model, controller or view 
 > file will be updated automatically, but when you modify routes or schema you
@@ -84,7 +86,7 @@ in your browser, the router should decide what part of the application should ha
 request. Routes are configuration rules that explain to the application what paths your application 
 can handle.
 
-Routes are listed in file `config/routes.js` which look like:
+Routes are listed in the file `config/routes.js` which looks like this:
 
 ```javascript
 exports.routes = function (map) {
@@ -111,8 +113,14 @@ Note how the line "map.resources('lists');" generates a collection of predefined
 
 In this table the first column shows the _route helper_ name, the second describes the _method_ (aka _verb_) for the route, 
 the third describes the _route_ itself, and the last column shows the _controller#action_ that handles 
-the request.   As you can see, a route is a pattern that defines what a resource call will look like in a browser.  When a browser asks the server
+the request.   As you can see, a route is a pattern that defines what a resource request will look like in the address bar of a browser.  When a browser asks the server
 for a route like /lists/1/ the router will test it against these patterns to determine how to handle it.
+
+> Note that the word Request has special meaning in Node programming.  
+> It refers to the object created whenever a browser `requests` the server do anything. 
+> To anyone visiting your app in a browser the request is represented by the address in the address bar.
+> To your app the request is represented by the `req` object.  That object contains several properties
+> including the address that the browser requested.
 
 To make the process of including routes in pages easier, Compound includes router helpers. The helper name should be used to generate paths, and all route helpers are available 
 as methods on the `pathTo` object. These next examples show the output of calling the list router helpers:
@@ -147,7 +155,7 @@ described in `./app/controllers/lists.js`.
 
 The controller consists of a set of actions and hooks. Both actions and hooks should handle
 the request or call `next()` if the request could not be handled. If `next()` is
-called, control will be returned to the router which will then try to match next route to
+called, control will be returned to the router which will then try to match the next route to
 handle this request. Otherwise, if the action could not handle the request because of an error, 
 you can call `next(err)` and then control will be passed to error handler express
 middleware (skipping all routes).
@@ -156,8 +164,7 @@ Hooks allow you to prepare the environment before an action or do something addi
 after an action. For example, load a list before the edit, update, show actions.  
 This tool allows for DRYer controllers.
 
-The most common results of an action are `render`, `send` and `redirect`. And of course
-`next(err)` - this is most often used result of any action.
+Other than `next(err)`, the most common results of an action are `render`, `send` and `redirect`. Each of which return output to the broweser.
 
 The most important thing to remember about controllers is that controllers should not contain any 
 business logic. While you can validate your data, and do things to it before calling_create_ and 
@@ -177,14 +184,14 @@ when it is the same as the action name. For example, from within lists_controlle
         render();
     });
 
-Will render view the view 'lists/index' located in `./app/views/lists/index.ejs`
-within the layout. The convention is that unless you are calling a view with a name
+Will render the `view` 'lists/index' located in `./app/views/lists/index.ejs`
+within the `layout`. The convention is that unless you are calling a view with a name
 other than the action name, you can omit it.
 
 ##### Layouts
 
-A layout is a view wrapping the target view. By convention, the layout called will
-share the same name as the controller. A rendered view is passed into a layout as 
+A layout is a view wrapping the target view, this pattern allows truly modular output.  With Layouts & Views you can put all of the HTML that is consistant for a group of views inside one Layout. An example of this might be having the header and the footer for your app inside the layout and all the process or page specific pieces inside your views but it an be much more powerful than this as well. 
+By convention, the `layout` called will share the same name as the controller. A rendered view is passed into a layout as 
 the `body` variable. To render a view without layout you can specify 
 `{layout: false}` as a param of the `render` method, or just `this.layout = false`
 inside controllerContext. You also can specify what layout you want to render
@@ -197,6 +204,7 @@ using `c.layout('name');` within controllerContext:
 
 ##Authors
 Anatoliy Chakkaev
+
 [Daniel Lochrie](https://github.com/dlochrie)
 
 [express]: http://expressjs.com/
