@@ -72,8 +72,6 @@ API.
 
 #### [How to have multiple applications in a single application][multiple-app]
 This guide presents how to integrate multiple "child" Compound applications in a "parent" application.
-After the integration, the child applications can still be used as standalone for easier development.
-This guide is divided in two sections: how to prepare the child applications for the integration and how to do the integration in the parent.
 
 [crash-course]: https://github.com/compoundjs/guides/blob/master/basics/crash-course.md
 [elements-explained]: https://github.com/compoundjs/guides/blob/master/basics/elements-explained.md
