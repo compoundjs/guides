@@ -2,7 +2,9 @@ Multiple applications in a single application
 ==============
 
 This guide presents how to integrate multiple "child" Compound applications in a "parent" application.
+
 After the integration, the child applications can still be used as standalone for easier development.
+
 This guide is divided in two sections: how to prepare the child applications for the integration and how to do the integration in the parent.
 
 Integration guide
@@ -93,5 +95,7 @@ Integration in the parent application:
 - Modify the menu in “/app/views/layouts/header.ejs” to add child application’s links.
 
 **NB:**	The child’s controllers are always overridden by the parent’s controllers and might be overridden by other child’s depending on the order they are loaded. Knowing that, you can use that by making “fake” controllers in the child that gets overridden with the parent.
+
 Ex.: The child module can use a fake “authentication_controller” without validation for the standalone, and it will use the parent’s “authentication_controller” when integrated.
+
 You must also be careful to not have modules, controller, models or other elements using the same name; it will either be overwritten or cause an error when starting the server.
