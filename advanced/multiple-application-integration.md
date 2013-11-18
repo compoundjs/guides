@@ -98,4 +98,4 @@ Integration in the parent application:
 
 Ex.: The child module can use a fake “authentication_controller” without validation for the standalone, and it will use the parent’s “authentication_controller” when integrated.
 
-You must also be careful to not have modules, controller, models or other elements using the same name; it will either be overwritten or cause an error when starting the server.
+You must also be careful to not have modules, controller, models or other elements using the same name; it will either be overridden or cause an error when starting the server. If some elements need to be used by multiple childs, you can include it in the parent instead, as for the authentication module in the example above.
