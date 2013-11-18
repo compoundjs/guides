@@ -33,7 +33,7 @@ Modifications to the child application before the integration:
 - Rename the “application_controller.js” and “application_layout.js” to a unique name.
 - Change the load('application'); in the controllers to use the new name.
 - If applicable, change the route to change the “application” route to use the new name.
-- In the application controller, add **this.publicPath = compound.subPublic['PRT'];** and change the javascript and style inclusion in the child’s layout.
+- In the application controller, add **this.publicPath = compound.subPublic['PRT'];** in a "before" statement and change the javascript and style inclusion in the child’s layout.
 	
 		<%- stylesheetLinkTag('../'+publicPath+'stylesheets/bootstrap')%>
 		<%- javascriptIncludeTag('../'+publicPath+'javascripts/external/jquery.min')%>
