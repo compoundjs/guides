@@ -1,4 +1,4 @@
-How to have multiple applications in a single application
+Multiple applications in a single application
 ==============
 
 This guide presents how to integrate multiple "child" Compound applications in a "parent" application.
