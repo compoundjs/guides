@@ -38,7 +38,7 @@ Modifications to the child application before the integration:
 		<%- stylesheetLinkTag('../'+publicPath+'stylesheets/bootstrap')%>
 		<%- javascriptIncludeTag('../'+publicPath+'javascripts/external/jquery.min')%>
 
-- In “route.js”, add **if(map.app.compound.subPublic['UNIQUE_NAME'] === "")** to “root” or "/" routes.
+- In “route.js”, add **if(map.app.compound.subPublic['UNIQUE_NAME'] === "")** to “root” or "/" routes and do the same for the generic routes (such as **map.all(':controller/:action/:id')**.
 - To limit the changes, it is highly recommended to split the layout in multiple files, taking the menu out of the layout page and instead include it with **<% include FILE %>**. This will simplify the integration by only modifing the parent's menu instead of every childs.
 
 **If using AngularJS (for other front-end module, do something similar):**
