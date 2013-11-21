@@ -46,7 +46,7 @@ Learn how to test your application.
 
 #### [Deploy][deploy]
 
-This guide shows how you can deploy your applications into heroku.
+This guide shows how you can deploy your application.
 
 #### [Security][security]
 
