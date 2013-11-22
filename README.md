@@ -70,6 +70,9 @@ use API methods to configure CompoundJS for your application needs.
 Let's see how to extend CompoundJS and make your code reusable using the extensions
 API.
 
+#### [How to have multiple applications in a single application][multiple-app]
+This guide presents how to integrate multiple "child" Compound applications in a "parent" application.
+
 [crash-course]: https://github.com/compoundjs/guides/blob/master/basics/crash-course.md
 [elements-explained]: https://github.com/compoundjs/guides/blob/master/basics/elements-explained.md
 
@@ -86,3 +89,4 @@ API.
 [extensions-api]: https://github.com/compoundjs/guides/blob/master/advanced/extensions-api.md
 [deploy]:  https://github.com/compoundjs/guides/blob/master/essentials/deploy.md
 [testing]:  https://github.com/compoundjs/guides/blob/master/essentials/testing.md
+[multiple-app]: https://github.com/compoundjs/guides/blob/master/advanced/multiple-application-integration.md
