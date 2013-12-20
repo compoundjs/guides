@@ -86,3 +86,7 @@ API.
 [extensions-api]: https://github.com/compoundjs/guides/blob/master/advanced/extensions-api.md
 [deploy]:  https://github.com/compoundjs/guides/blob/master/essentials/deploy.md
 [testing]:  https://github.com/compoundjs/guides/blob/master/essentials/testing.md
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/compoundjs/guides/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
